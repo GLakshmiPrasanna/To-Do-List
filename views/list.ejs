@@ -1,0 +1,22 @@
+<%- include("header") -%>
+
+    <div class="box" id="heading">
+        <h1><%=eTitle%></h1>
+    </div>
+    <div class="box">
+        <%  eNew.forEach(function(item){  %>
+            <form action="/delete" method="post">
+                <div class="item">
+                    <input type="checkbox" name='checkbox' onChange="this.form.submit()" value="<%= item._id %>">
+                    <p><%=item.name%></p> 
+                </div>
+                <input type="hidden" name="title" value="<%=eTitle%>">
+            </form>
+        <%  })   %>
+        <form action="/" method="post">
+            <input type="text" name="eItem" placeholder="Add New Item" autofocus autocomplete="off">
+            <button type="submit" name="eBtn" value="<%=eTitle%>">+</button>
+        </form>
+    </div>
+
+<%- include("footer") -%>
